@@ -1,2 +1,23 @@
-<h1>Jobs#index</h1>
-<p>Find me in app/views/jobs/index.html.erb</p>
+
+
+<h1>Github API Development Jobs</h1>
+<h2>This application shows programming language trends for seven major US cities. </h2>
+
+
+
+
+
+
+<div id="printout">
+
+<% @city=nil %>
+<% for i in 0..@totals.count-1 %>
+  <% row = @totals[i] %>
+  <% if @city!=row[:city] %>
+    <%= row[:city] %></br>
+    <% @city = row[:city] %>
+  <% end %>
+  <%= "- #{row[:language]}: #{(row[:percentage] * 100).to_i}%" %></br>
+<% end %>
+
+</div>
